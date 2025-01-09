@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import "src/internal/routers"
 
 func main() {
-	fmt.Print("Starting server...")
+	r := routers.NewRouter()
+
+	r.Run()
 }
