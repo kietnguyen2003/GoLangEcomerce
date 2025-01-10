@@ -34,8 +34,8 @@ func main() {
 	// ----------------------------- 5. Ghi log with WriteSyncer ------------------------------------
 	encoder := getEncoderLog()
 	sync := getWriteSync()
-	core := zapcore.NewCore(encoder, sync, zapcore.InfoLevel)
-	logger5 := zap.New(core)
+	core2 := zapcore.NewCore(encoder, sync, zapcore.InfoLevel)
+	logger5 := zap.New(core2)
 
 	logger5.Info("Info logger1", zap.Int("line", 1))
 	logger5.Error("Error logger2", zap.Int("line", 2))
