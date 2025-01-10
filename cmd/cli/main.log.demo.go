@@ -9,24 +9,29 @@ import (
 )
 
 func main() {
-	// // 1. Example
-	// logger1 := zap.NewExample()
-	// logger1.Info("Example logger1")
+	// ----------------------------- 1. Example ------------------------------------
+	logger1 := zap.NewExample()
+	logger1.Info("Example logger1")
 
-	// // 2. Development
-	// logger2, _ := zap.NewDevelopment()
-	// logger2.Info("Development logger2")
+	// ----------------------------- 2. Development ------------------------------------
+	logger2, _ := zap.NewDevelopment()
+	logger2.Info("Development logger2")
 
-	// // 3. Production
-	// logger3, _ := zap.NewProduction()
-	// logger3.Info("Production logger3")
+	// ----------------------------- 3. Production ------------------------------------
+	logger3, _ := zap.NewProduction()
+	logger3.Info("Production logger3")
 
-	// // 4. Custom log
-	// core := zapcore.NewCore(getEncoderLog(), zapcore.AddSync(os.Stdout), zapcore.InfoLevel)
-	// logger4 := zap.New(core)
-	// logger4.Info("Custom logger4")
+	// Kết quả
+	// {"level":"info","msg":"Example logger1"}
+	// 2025-01-10T16:48:28.350+0700    INFO    cli/main.log.demo.go:14 Development logger2
+	// {"level":"info","ts":1736502508.3511257,"caller":"cli/main.log.demo.go:18","msg":"Production logger3"}
 
-	// 5. Ghi log with WriteSyncer
+	// ----------------------------- 4. Custom log ------------------------------------
+	core := zapcore.NewCore(getEncoderLog(), zapcore.AddSync(os.Stdout), zapcore.InfoLevel)
+	logger4 := zap.New(core)
+	logger4.Info("Custom logger4")
+
+	// ----------------------------- 5. Ghi log with WriteSyncer ------------------------------------
 	encoder := getEncoderLog()
 	sync := getWriteSync()
 	core := zapcore.NewCore(encoder, sync, zapcore.InfoLevel)
@@ -34,11 +39,6 @@ func main() {
 
 	logger5.Info("Info logger1", zap.Int("line", 1))
 	logger5.Error("Error logger2", zap.Int("line", 2))
-
-	// Kết quả
-	// {"level":"info","msg":"Example logger1"}
-	// 2025-01-10T16:48:28.350+0700    INFO    cli/main.log.demo.go:14 Development logger2
-	// {"level":"info","ts":1736502508.3511257,"caller":"cli/main.log.demo.go:18","msg":"Production logger3"}
 }
 
 // custom log
