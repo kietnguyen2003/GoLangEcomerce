@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"net/http"
 	"src/internal/service"
+	"src/package/response"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -19,23 +19,16 @@ func NewUserController() *UserController {
 }
 
 func (uc *UserController) Users(c *gin.Context) {
-	name := c.DefaultQuery("name", "kietnguyen2003")
-	c.JSON(http.StatusOK, gin.H{
-		"name: ":  name,
-		"users: ": uc.userService.Users(),
-	})
+	users := uc.userService.Users()
+	response.SuccesResponse(c, response.ErrorCodeSuccess, users)
 }
 
 func (uc *UserController) GetUserById(c *gin.Context) {
 	id := c.Param("id")
 	userId, err := strconv.Atoi(id)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid user ID"})
+		response.ErrorResponse(c, response.ErrorCodeParamInvalid, "param invalid")
 		return
 	}
-	name := c.DefaultQuery("name", "kietnguyen2003")
-	c.JSON(http.StatusOK, gin.H{
-		"name: ":  name,
-		"users: ": uc.userService.GetUserById(userId),
-	})
+	response.SuccesResponse(c, response.ErrorCodeSuccess, uc.userService.GetUserById(userId))
 }
