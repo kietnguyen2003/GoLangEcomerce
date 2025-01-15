@@ -1,34 +1,32 @@
 server:
   port: 8080
-databases:
-  - user: admin
-    password: admin
-    host: localhost
-    dbName: GoLang
-    port: 5432
-  - user: neverland
-    password: neverland
-    host: localhost
-    dbName: neverland
-    port: 5432
-security:
-  jwt:
-    secret: abc123412
-    expiration: 3600
-redis:
-  host: localhost
-  port: 6379
-  password: ""
-  db: 0
-elasticsearch:
-  host: localhost
-  port: 9200
-  user: ""
-  password: ""
-rabbitmq:
-  host: localhost
-  port: 5672
-kafka:
-  host: localhost
-  port: 9092
-  topic: test
+database:
+  user: root
+  password: 123456
+  host: 127.0.0.1
+  dbName: shodevgo
+  port: 3306
+  maxIdleConns: 10  # số lượng kết nối tối đa
+  maxOpenConns: 100 # số lượng kết nối tối đa
+  connMaxLifetime: 3600 # thời gian sống của kết nối
+# security:
+#   jwt:
+#     secret: abc123412
+#     expiration: 3600
+# redis:
+#   host: localhost
+#   port: 6379
+#   password: ""
+#   db: 0
+# elasticsearch:
+#   host: localhost
+#   port: 9200
+#   user: ""
+#   password: ""
+# rabbitmq:
+#   host: localhost
+#   port: 5672
+# kafka:
+#   host: localhost
+#   port: 9092
+#   topic: test

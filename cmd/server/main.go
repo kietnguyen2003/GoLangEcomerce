@@ -1,9 +1,14 @@
 package main
 
-import "src/internal/routers"
+import "src/internal/initialize"
 
 func main() {
-	r := routers.NewRouter()
+	// r := routers.NewRouter()
+	// // InitMySQL()
+	// // InitRedis()
+	// // InitKafka()
+	// // InitRabbitMQ()
+	// r.Run()
 
-	r.Run()
+	initialize.Run()
 }
