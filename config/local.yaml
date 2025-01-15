@@ -9,6 +9,13 @@ database:
   maxIdleConns: 10  # số lượng kết nối tối đa
   maxOpenConns: 100 # số lượng kết nối tối đa
   connMaxLifetime: 3600 # thời gian sống của kết nối
+logger:
+  level: 'debug'
+  file: "./storages/logs/dev.xxx.log"
+  maxSize: 500
+  maxBackups: 3
+  maxAge: 28
+  compress: true
 # security:
 #   jwt:
 #     secret: abc123412
