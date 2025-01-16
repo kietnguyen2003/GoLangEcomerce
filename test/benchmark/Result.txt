@@ -2,5 +2,4 @@ Function Test             Số lần lặp lại          Thời gian trung bìn
 
 BenchmarkMaxOpenConss1-8             523                              2003038 ns/op                                           5845 B/op                               75 allocs/op
 BenchmarkMaxOpenConss10-8           2560                               414278 ns/op                                           6525 B/op                               75 allocs/op
-
-=> Giưa
+BenchmarkMaxOpenConss100-8          2083                               717334 ns/op                                           6447 B/op                               75 allocs/op

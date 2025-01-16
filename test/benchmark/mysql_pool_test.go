@@ -86,7 +86,7 @@ func BenchmarkMaxOpenConss10(b *testing.B) {
 		log.Fatalf("Failed to get sql.DB: %v", err)
 	}
 	// set config cho mysql
-	sql.SetMaxOpenConns(10)
+	sql.SetMaxOpenConns(100)
 	defer sql.Close()
 
 	//
