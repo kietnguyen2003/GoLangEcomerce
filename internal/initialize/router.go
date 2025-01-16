@@ -2,30 +2,43 @@ package initialize
 
 import (
 	// thấy controller dài qua thì để chữ c vô
-	c "src/internal/controllers"
-	"src/internal/middleware"
+
+	"src/global"
+	"src/internal/routers"
 
 	"github.com/gin-gonic/gin"
 )
 
 func InitRouter() *gin.Engine {
+	var r *gin.Engine
+	if global.Config.Server.Mode == "dev" {
+		gin.SetMode(gin.DebugMode)
+		gin.ForceConsoleColor()
+		r = gin.Default()
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+		r = gin.New()
+	}
 
-	r := gin.Default() // dùng crt + click để xem hàm này sử lý Middleware như thế nào
+	// middleware
+	r.Use() // loggin
+	r.Use() // cross
+	r.Use() // limiter global
 
-	// Middleware sau khi click vào sẽ thấy
-	// engine.Use(Logger(), Recovery()) click tiếp vô Logger(), sẽ thấy middleware đó sử dụng HandleFunc
-	// Do đó tất cả các Middleware đều sử dụng HandleFunc, xem các middleware bên dưới để thấy rõ hơn
-	r.Use(middleware.CrosMiddleware(), middleware.LoggerMiddleware(), middleware.ErrorHandleMiddleware(), middleware.RateLimitMiddleware(), middleware.AuthMiddleware())
+	manageRouter := routers.RouterGroupApp.Manage
+	userRouter := routers.RouterGroupApp.User
 
-	v1 := r.Group("/v1/api")
+	MainRouterGroup := r.Group("/v1/api")
 	{
-		// Pong
-		v1.GET("/ping/", c.NewPongController().Pong)
-		v1.GET("/ping/:name", c.NewPongController().Pong)
-
-		// Users
-		v1.GET("/users", c.NewUserController().Users)
-		v1.GET("/users/:id", c.NewUserController().GetUserById)
+		MainRouterGroup.GET("/checkStatus") //tracking monitor
+	}
+	{
+		manageRouter.AdminRouter.InitAdminRouter(MainRouterGroup)
+		manageRouter.UserRouter.InitUserRouter(MainRouterGroup)
+	}
+	{
+		userRouter.UserRouter.InitUserRouter(MainRouterGroup)
+		userRouter.ProductRouter.InitProductRouter(MainRouterGroup)
 	}
 	return r
 }

@@ -16,7 +16,7 @@ func Run() {
 	Initlogger()
 	global.Logger.Info("Logger init success")
 	InitMysql()
-	InitRedis()
+	// InitRedis()
 	r := InitRouter()
 	r.Run(":8002")
 }
