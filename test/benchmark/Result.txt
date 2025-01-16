@@ -1,0 +1,6 @@
+Function Test             Số lần lặp lại          Thời gian trung bình mỗi lần lặp.           Số byte bộ nhớ được cấp phát mỗi lần lặp.         Số lần cấp phát bộ nhớ mỗi lần lặp.
+
+BenchmarkMaxOpenConss1-8             523                              2003038 ns/op                                           5845 B/op                               75 allocs/op
+BenchmarkMaxOpenConss10-8           2560                               414278 ns/op                                           6525 B/op                               75 allocs/op
+
+=> Giưa

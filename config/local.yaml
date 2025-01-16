@@ -4,7 +4,7 @@ database:
   user: root
   password: 123456
   host: 127.0.0.1
-  dbName: shodevgo
+  dbName: shopdevgo
   port: 3306
   maxIdleConns: 10  # số lượng kết nối tối đa
   maxOpenConns: 100 # số lượng kết nối tối đa

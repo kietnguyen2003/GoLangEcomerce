@@ -1,2 +1,13 @@
-{"Level":"info","Time":"2025-01-15T16:53:45.568+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
-{"Level":"info","Time":"2025-01-15T16:54:23.793+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"info","Time":"2025-01-16T15:28:30.981+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"error","Time":"2025-01-16T15:28:31.015+0700","caller":"initialize/mysql.go:25","msg":"InitMysql error: ","error":"Error 1049 (42000): Unknown database 'shodevgo'","stacktrace":"src/internal/initialize.InitMysql\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/mysql.go:25\nsrc/internal/initialize.Run\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/run.go:18\nmain.main\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/cmd/server/main.go:13\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:272"}
+{"Level":"info","Time":"2025-01-16T15:29:18.162+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"error","Time":"2025-01-16T15:29:18.167+0700","caller":"initialize/mysql.go:25","msg":"InitMysql error: ","error":"Error 1049 (42000): Unknown database 'shodevgo'","stacktrace":"src/internal/initialize.InitMysql\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/mysql.go:25\nsrc/internal/initialize.Run\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/run.go:18\nmain.main\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/cmd/server/main.go:13\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:272"}
+{"Level":"info","Time":"2025-01-16T15:29:46.640+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"info","Time":"2025-01-16T15:29:46.645+0700","caller":"initialize/mysql.go:29","msg":"InitMysql success"}
+{"Level":"info","Time":"2025-01-16T15:35:12.940+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"info","Time":"2025-01-16T15:35:12.943+0700","caller":"initialize/mysql.go:29","msg":"InitMysql success"}
+{"Level":"info","Time":"2025-01-16T15:36:33.269+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"info","Time":"2025-01-16T15:36:33.273+0700","caller":"initialize/mysql.go:29","msg":"InitMysql success"}
+{"Level":"error","Time":"2025-01-16T15:36:33.278+0700","caller":"initialize/mysql.go:58","msg":"migrateDb error: ","error":"unsupported data type: &[]","stacktrace":"src/internal/initialize.migrateDb\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/mysql.go:58\nsrc/internal/initialize.InitMysql\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/mysql.go:34\nsrc/internal/initialize.Run\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/internal/initialize/run.go:18\nmain.main\n\tD:/Leetcode/Go/go-ecomerce/GoLangBaseProject/cmd/server/main.go:13\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:272"}
+{"Level":"info","Time":"2025-01-16T15:40:02.887+0700","caller":"initialize/run.go:17","msg":"Logger init success"}
+{"Level":"info","Time":"2025-01-16T15:40:02.890+0700","caller":"initialize/mysql.go:29","msg":"InitMysql success"}
